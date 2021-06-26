@@ -12,6 +12,24 @@
       <div class = "content">
           <p><%= blog.body %></p>
       </div>
+      <a class = "delete" data-doc = "<%= blog._id %>">Delete</a>
     </div>
+
+    <script>
+      const bin = document.querySelector('a.delete')
+
+      bin.addEventListener('click', (e) => {
+        const endpoint = `/blogs/${bin.dataset.doc}`
+
+        fetch(endpoint, {
+          method: 'DELETE'
+        })
+        .then((response) => response.json())
+        .then((data) => window.location.href = data.redirect)
+        .catch((error) => {
+          console.log(error)
+        })
+      })
+    </script>
   </body>
 </html>
