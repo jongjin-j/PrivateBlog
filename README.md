@@ -1,4 +1,4 @@
-# BostonGolf
+# Private Blog
 ## Installing MongoDB
 
 If you do not have mongoDB installed, run the following commands to install. 
