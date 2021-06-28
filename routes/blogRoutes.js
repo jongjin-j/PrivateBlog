@@ -1,8 +1,25 @@
 const express = require('express')
 const Blog = require('../models/blog')
 //const blogController = require('../controllers/blogController')
-
+const multer = require('multer')
 const router = express.Router()
+
+const storage = multer.diskStorage({
+  destination: function (req, file, callback) {
+    callback(null, './style/uploads');
+  },
+  
+  filename: function (req, file, callback) {
+    callback(null, Date.now() + file.originalname);
+  },
+});
+  
+const upload = multer({
+storage: storage,
+  limits: {
+    fieldSize: 1024 * 1024 * 3,
+  },
+});
 
 router.get('/', (req, res) => {
     Blog.find().sort({ createdAt: -1 })
@@ -14,8 +31,15 @@ router.get('/', (req, res) => {
     })
 })
 
-router.post('/', (req, res) => {
-    const blog = new Blog(req.body)
+router.post('/', upload.single('image'), (req, res) => {
+    console.log(req.file)
+
+    const blog = new Blog({
+        title: req.body.title,
+        snippet: req.body.snippet,
+        body: req.body.body,
+        image: req.file.filename
+    })
   
     blog.save()
         .then((result) => {
