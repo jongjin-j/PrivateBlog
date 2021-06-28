@@ -7,7 +7,9 @@ const app = express()
 
 const PORT = 5000
 
-const dbURI = "mongodb+srv://BlogUser:BostonGolfReview@blog.95hn5.mongodb.net/Review-blog?retryWrites=true&w=majority"
+//const dbURI = "mongodb+srv://BlogUser:BostonGolfReview@blog.95hn5.mongodb.net/Review-blog?retryWrites=true&w=majority"
+const dbURI = "mongodb://127.0.0.1:27017/test"
+
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
   .then((result) => app.listen(PORT))
   .catch((error) => console.log(error))

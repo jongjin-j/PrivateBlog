@@ -13,6 +13,10 @@ const blogSchema = new Schema({
     body: {
         type: String,
         required: true
+    },
+    image: {
+        type: String,
+        default: "image1.jpg"
     }
 }, {timestamps: true})
 
