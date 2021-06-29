@@ -10,11 +10,11 @@
     <div class = "details content">
       <h2><%= blog.title %></h2>
 
-      <img class = "image" src = "/uploads/<%= blog.image %>">
-      
-      <div class = "content">
-          <p><%= blog.body %></p>
+      <div class = "blog-body">
+        <img class = "image" src = "/uploads/<%= blog.image %>">
+        <p class = "blog-text"><%= blog.body %></p>
       </div>
+      
       <a class = "delete" data-doc = "<%= blog._id %>">Delete</a>
     </div>
 
