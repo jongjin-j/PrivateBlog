@@ -5,6 +5,17 @@ body{
     max-width: 1200px;
   }
 
+  .home-button{
+    border-radius: 36px;
+    background: rgba(139,0,139, 0.6);
+    margin-top: 20px;
+    padding: 12px 18px;
+    text-transform: uppercase;
+    font-weight: bold;
+    display: inline-block;
+    font-size: 0.8em;
+  }
+
   p, h1, h2, h3, a, ul{
     margin: 0;
     padding: 0;
@@ -137,3 +148,10 @@ body{
       font-size: 1.2em;
       cursor: pointer;
   }
+
+  footer{
+    font-family: 'Quicksand', sans-serif;
+    color: grey;
+  }
+
+  

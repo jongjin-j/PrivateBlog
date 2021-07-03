@@ -2,6 +2,7 @@ const express = require('express')
 const morgan = require('morgan')
 const mongoose = require('mongoose')
 const blogRoutes = require('./routes/blogRoutes')
+const authRoutes = require('./routes/authRoutes')
 
 const app = express()
 
@@ -21,10 +22,12 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static('style'))
 
 app.get('/', (req, res) => {
-  res.redirect('/blogs')
+  res.render('home', {title: 'Home'})
 })
 
 app.use('/blogs', blogRoutes)
+
+app.use('/', authRoutes)
 
 app.use((req, res) => {
   res.status(404).render('error', {title: 'Error'})
