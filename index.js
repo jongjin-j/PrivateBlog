@@ -10,6 +10,10 @@ const PORT = 5000
 
 const dbURI = "mongodb://127.0.0.1:27017/test"
 
+mongoose.set('useNewUrlParser', true);
+mongoose.set('useFindAndModify', false);
+mongoose.set('useCreateIndex', true);
+
 mongoose.connect(dbURI, {useNewUrlParser: true, useUnifiedTopology: true})
   .then((result) => app.listen(PORT))
   .catch((error) => console.log(error))
@@ -20,6 +24,7 @@ app.set('views', 'pages')
 app.use(morgan('dev'))
 app.use(express.urlencoded({extended: true}))
 app.use(express.static('style'))
+app.use(express.json())
 
 app.get('/', (req, res) => {
   res.render('home', {title: 'Home'})
