@@ -7,13 +7,19 @@ body{
 
   .home-button{
     border-radius: 36px;
-    background: rgba(139,0,139, 0.6);
+    border: 2px solid rgba(139,0,139);
+    background: white;
     margin-top: 20px;
     padding: 12px 18px;
     text-transform: uppercase;
     font-weight: bold;
     display: inline-block;
     font-size: 0.8em;
+  }
+
+  .home-button:hover{
+    background: rgba(139,0,139);
+    color: white;
   }
 
   p, h1, h2, h3, a, ul{
@@ -123,6 +129,7 @@ body{
   }
 
   .create-blog input, .create-blog textarea{
+      border: 1px solid darkmagenta;
       display: block;
       width: 100%;
       margin: 10px 0;
@@ -141,12 +148,18 @@ body{
 
   .create-blog button{
       margin-top: 20px;
-      background: darkmagenta;
-      color: white;
-      padding: 6px;
-      border: 0;
+      border-radius: 36px;
+      background: white;
+      color: black;
+      padding: 8px;
+      border: 2px solid darkmagenta;
       font-size: 1.2em;
       cursor: pointer;
+  }
+
+  .create-blog button:hover{
+    background: darkmagenta;
+    color: white;
   }
 
   footer{
@@ -154,4 +167,50 @@ body{
     color: grey;
   }
 
-  
+  form h2{
+    font-size: 2.5em;
+    font-weight: 800;
+    margin-bottom: 40px;
+    font-family: 'Quicksand', sans-serif
+  }
+
+  form{
+    width: 360px;
+    margin: 0 auto;
+    padding: 30px;
+    box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background: white;
+  }
+
+  input{
+    padding: 10px 12px;
+    border-radius: 4px;
+    border: 1px solid beige;
+    font-size: 1em;
+    width: 100%;
+  }
+
+  label{
+    display: block;
+    margin: 20px 0 10px;
+  }
+
+  .form-button{
+    margin-top: 30px;
+    border-radius: 36px;
+    border: 2px solid darkmagenta; 
+    background-color: white;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 0.8em;
+    display: block;
+    padding: 10px 16px;
+    letter-spacing: 2px;
+    cursor: pointer;
+  }
+
+  .form-button:hover{
+    background-color: darkmagenta;
+    color: white;
+  }
