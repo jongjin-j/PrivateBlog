@@ -8,7 +8,10 @@ const app = express()
 
 const PORT = 5000
 
-const dbURI = "mongodb://127.0.0.1:27017/test"
+const dbURI = "mongodb://localhost:27017/test"
+
+/*  Alternative database URI  */
+//const dbURI = "mongodb://127.0.0.1:27017/test"
 
 mongoose.set('useNewUrlParser', true);
 mongoose.set('useFindAndModify', false);
