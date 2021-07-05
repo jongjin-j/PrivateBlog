@@ -4,6 +4,7 @@ const mongoose = require('mongoose')
 const blogRoutes = require('./routes/blogRoutes')
 const authRoutes = require('./routes/authRoutes')
 const cookieParser = require('cookie-parser')
+const requireAuth = require('./middleware/authMiddleware')
 
 const app = express()
 
@@ -35,11 +36,9 @@ app.get('/', (req, res) => {
   res.render('home', {title: 'Home'})
 })
 
-app.use('/blogs', blogRoutes)
+app.use('/blogs', requireAuth, blogRoutes)
 
-app.use('/', authRoutes)
-
-
+app.use(authRoutes)
 
 app.use((req, res) => {
   res.status(404).render('error', {title: 'Error'})

@@ -7,6 +7,14 @@ const handleErrors = (err) => {
     console.log(err.message, err.code)
     let errors = {email: '', password: ''}
 
+    if(err.message === 'Email does not exist'){
+        errors.email = err.message
+    }
+
+    if(err.message === 'Incorrect password'){
+        errors.password = err.message
+    }
+
     if(err.code === 11000){
         errors.email = 'Email is already registered'
     }
@@ -51,9 +59,19 @@ router.post('/signup', async (req, res) => {
     }
 })
 
-router.post('/login', (req, res) => {
+router.post('/login', async (req, res) => {
     const {email, password} = req.body
-    res.send('login')
+    
+    try{
+        const user = await User.login(email, password)
+        const token = createToken(user._id)
+        res.cookie('jwt', token, { httpOnly: true, maxAge: maxAge * 1000 })
+        res.status(200).json({ user: user._id })
+    }
+    catch (err) {
+        const errors = handleErrors(err)
+        res.status(400).json({errors})
+    }
 })
 
 module.exports = router
