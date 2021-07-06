@@ -16,8 +16,11 @@ Run:
 
 Create a database and a collection by running:
 ### `use test`
-### `db.createCollection('collection name')`
-Insert any name for collection name above(include single quotes)
+### `db.createCollection('posts')`
+### `db.createCollection('users')`
+
+## Setting up Environment Variables
+In the project directory, create a **.env** file and add a secret in the same format as the example provided named .env_outline
 
 ## Running the app
 On a new terminal or command prompt, in the project directory, run:
