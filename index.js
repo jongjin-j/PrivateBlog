@@ -4,7 +4,9 @@ const mongoose = require('mongoose')
 const blogRoutes = require('./routes/blogRoutes')
 const authRoutes = require('./routes/authRoutes')
 const cookieParser = require('cookie-parser')
-const requireAuth = require('./middleware/authMiddleware')
+const loginControl = require('./middleware/loginControl')
+const userControl = require('./middleware/userControl')
+require('dotenv').config()
 
 const app = express()
 
@@ -32,11 +34,13 @@ app.use(express.static('style'))
 app.use(express.json())
 app.use(cookieParser())
 
+app.get('*', userControl)
+
 app.get('/', (req, res) => {
   res.render('home', {title: 'Home'})
 })
 
-app.use('/blogs', requireAuth, blogRoutes)
+app.use('/blogs', loginControl, blogRoutes)
 
 app.use(authRoutes)
 

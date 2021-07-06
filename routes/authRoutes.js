@@ -30,8 +30,14 @@ const handleErrors = (err) => {
 
 const maxAge = 3 * 24 * 60 * 60
 
-const createToken = (id) => {
+/*const createToken = (id) => {
     return jwt.sign({ id }, 'some secret', {
+        expiresIn: maxAge
+    })
+}*/
+
+const createToken = (id) => {
+    return jwt.sign({ id }, `${process.env.SECRET}`, {
         expiresIn: maxAge
     })
 }
@@ -72,6 +78,11 @@ router.post('/login', async (req, res) => {
         const errors = handleErrors(err)
         res.status(400).json({errors})
     }
+})
+
+router.get('/logout', (req, res) => {
+    res.cookie('jwt', '', { maxAge: 1 })
+    res.redirect('/')
 })
 
 module.exports = router

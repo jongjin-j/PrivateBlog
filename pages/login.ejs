@@ -45,7 +45,7 @@
       })
 
       const data = await res.json()
-      console.log(data)
+      console.log('login data: ', data)
 
       if(data.errors){
         emailError.textContent = data.errors.email

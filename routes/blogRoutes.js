@@ -43,7 +43,7 @@ router.post('/', upload.single('image'), (req, res) => {
   
     blog.save()
         .then((result) => {
-            res.redirect('/')
+            res.redirect('/blogs')
         })
         .catch((error) => {
             console.log(error)
