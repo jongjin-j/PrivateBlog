@@ -89,6 +89,7 @@ body{
 
   .blog-text{
     margin-left: 40px;
+    font-size: 1.3em;
   }
 
   .blogs a{
@@ -104,6 +105,21 @@ body{
 
   .image{
     height: 300px;
+  }
+
+  .home-image{
+    height: 50px;
+    transform: translateY(56%);
+  }
+
+  .preview{
+    display: flex;
+    height: 100px;
+  }
+
+  .single{
+    padding-left: 20px;
+    margin-top: -10px;
   }
 
   .details{
